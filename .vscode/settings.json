@@ -1,0 +1,25 @@
+{
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "jestrunner.jestCommand": "NODE_ENV=dev npm run test --",
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#172d38",
+        "activityBar.background": "#172d38",
+        "activityBar.foreground": "#e7e7e7",
+        "activityBar.inactiveForeground": "#e7e7e799",
+        "activityBarBadge.background": "#9e417f",
+        "activityBarBadge.foreground": "#e7e7e7",
+        "commandCenter.border": "#e7e7e799",
+        "sash.hoverBorder": "#172d38",
+        "statusBar.background": "#081014",
+        "statusBar.foreground": "#e7e7e7",
+        "statusBarItem.hoverBackground": "#172d38",
+        "statusBarItem.remoteBackground": "#081014",
+        "statusBarItem.remoteForeground": "#e7e7e7",
+        "titleBar.activeBackground": "#081014",
+        "titleBar.activeForeground": "#e7e7e7",
+        "titleBar.inactiveBackground": "#08101499",
+        "titleBar.inactiveForeground": "#e7e7e799"
+    },
+    "peacock.color": "#081014"
+}
