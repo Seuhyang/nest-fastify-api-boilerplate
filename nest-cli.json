@@ -1,50 +1,50 @@
 {
-  "$schema": "https://json.schemastore.org/nest-cli",
-  "collection": "@nestjs/schematics",
-  "sourceRoot": "apps/nest-fastify-api-boilplate/src",
-  "compilerOptions": {
-    "deleteOutDir": true,
-    "webpack": true,
-    "tsConfigPath": "apps/nest-fastify-api-boilplate/tsconfig.app.json"
-  },
-  "monorepo": true,
-  "root": "apps/nest-fastify-api-boilplate",
-  "projects": {
-    "nest-fastify-api-boilplate": {
-      "type": "application",
-      "root": "apps/nest-fastify-api-boilplate",
-      "entryFile": "main",
-      "sourceRoot": "apps/nest-fastify-api-boilplate/src",
-      "compilerOptions": {
-        "tsConfigPath": "apps/nest-fastify-api-boilplate/tsconfig.app.json"
-      }
-    },
-    "backend": {
-      "type": "application",
-      "root": "apps/backend",
-      "entryFile": "main",
-      "sourceRoot": "apps/backend/src",
-      "compilerOptions": {
+    "$schema": "https://json.schemastore.org/nest-cli",
+    "collection": "@nestjs/schematics",
+    "sourceRoot": "apps/backend/src",
+    "compilerOptions": {
+        "deleteOutDir": true,
+        "webpack": true,
         "tsConfigPath": "apps/backend/tsconfig.app.json"
-      }
     },
-    "database": {
-      "type": "library",
-      "root": "libs/database",
-      "entryFile": "index",
-      "sourceRoot": "libs/database/src",
-      "compilerOptions": {
-        "tsConfigPath": "libs/database/tsconfig.lib.json"
-      }
-    },
-    "models": {
-      "type": "library",
-      "root": "libs/models",
-      "entryFile": "index",
-      "sourceRoot": "libs/models/src",
-      "compilerOptions": {
-        "tsConfigPath": "libs/models/tsconfig.lib.json"
-      }
+    "monorepo": true,
+    "root": "apps/nest-fastify-api-boilplate",
+    "projects": {
+        "backend": {
+            "type": "application",
+            "root": "apps/backend",
+            "entryFile": "main",
+            "sourceRoot": "apps/backend/src",
+            "compilerOptions": {
+                "tsConfigPath": "apps/backend/tsconfig.app.json"
+            }
+        },
+        "nest-fastify-api-boilplate": {
+            "type": "application",
+            "root": "apps/nest-fastify-api-boilplate",
+            "entryFile": "main",
+            "sourceRoot": "apps/nest-fastify-api-boilplate/src",
+            "compilerOptions": {
+                "tsConfigPath": "apps/nest-fastify-api-boilplate/tsconfig.app.json"
+            }
+        },
+        "database": {
+            "type": "library",
+            "root": "libs/database",
+            "entryFile": "index",
+            "sourceRoot": "libs/database/src",
+            "compilerOptions": {
+                "tsConfigPath": "libs/database/tsconfig.lib.json"
+            }
+        },
+        "models": {
+            "type": "library",
+            "root": "libs/models",
+            "entryFile": "index",
+            "sourceRoot": "libs/models/src",
+            "compilerOptions": {
+                "tsConfigPath": "libs/models/tsconfig.lib.json"
+            }
+        }
     }
-  }
 }
