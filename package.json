@@ -7,6 +7,7 @@
     "license": "UNLICENSED",
     "scripts": {
         "dev": "cross-env NODE_ENV=dev nest start backend --watch",
+        "dev:pm2": "pm2 start process-manager.config.cjs --env dev --only boilerplate-backend-api-server --watch",
         "prod": "cross-env NODE_ENV=prod nest start backend --watch",
         "build": "nest build",
         "format": "prettier --write \"apps/**/*.ts\" \"libs/**/*.ts\"",
@@ -35,6 +36,7 @@
         "@nestjs/platform-fastify": "^9.4.1",
         "@nestjs/schedule": "^2.2.2",
         "@nestjs/swagger": "^6.3.0",
+        "@nestjs/websockets": "^9.4.1",
         "@types/cron": "^2.0.1",
         "@types/mysql": "^2.15.21",
         "@types/passport-jwt": "^3.0.8",
