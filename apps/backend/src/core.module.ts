@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
-import dayjs from 'dayjs';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { LoggerModule } from 'nestjs-pino';
+import { DatabaseModule } from '@app/database';
 
 @Module({
     imports: [
@@ -8,6 +9,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
             isGlobal: true,
             envFilePath: `.env.${process.env.NODE_ENV}`,
         }),
+        LoggerModule.forRoot(),
     ],
 })
 export class CoreModule {}
