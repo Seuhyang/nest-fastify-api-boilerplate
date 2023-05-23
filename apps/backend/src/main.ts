@@ -28,8 +28,10 @@ async function bootstrap() {
 
     console.log('process.env.NODE_ENV ~::', process.env.NODE_ENV);
     console.log('server port ~::', configService.get<string>('server_port'));
+    console.log('?? ', app.getUrl());
 
     await app.listen(configService.get<string>('server_port'), '0.0.0.0');
+    console.log(`running on ${await app.getUrl()}`);
 }
 
 bootstrap();

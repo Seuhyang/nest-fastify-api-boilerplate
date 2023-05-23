@@ -4,12 +4,6 @@ import { JwtService } from '@nestjs/jwt';
 import { ExecutionContext, CanActivate } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import { FastifyRequest } from 'fastify';
-interface userData {
-    idx: number;
-    nickName: string;
-    uid: string;
-}
-
 @Injectable()
 export class AuthService {
     private readonly logger = new Logger(AuthService.name);
@@ -19,7 +13,7 @@ export class AuthService {
         this.JWT_SECRET_KEYS = this.configService.get<string>('jwt_secret_key');
     }
 
-    public createJwtByUserData(data: userData, context: ExecutionContext) {
+    async activated(context: ExecutionContext): Promise<boolean> {
         const isPublic = this.reflector.getAllAndOverride('isPublic', [context.getHandler(), context.getClass()]);
 
         const request = context.switchToHttp().getRequest();
@@ -31,26 +25,7 @@ export class AuthService {
         });
         this.logger.debug(payload);
 
-        const jwt = this.jwtService.sign(
-            {
-                idx: data.idx,
-                nickName: data.nickName,
-                uid: data.uid,
-            },
-            {
-                secret: this.JWT_SECRET_KEYS,
-            },
-        );
-        this.logger.debug(jwt);
-        return jwt;
-    }
-
-    // test
-    async jwtValidator(jwt: string) {
-        const decodedJwt = this.jwtService.decode(jwt, { json: true });
-        if (!decodedJwt) return null;
-        if (jwt) return null;
-        return decodedJwt;
+        return true;
     }
 
     private extractTokenFromHeader(request: FastifyRequest) {
