@@ -83,9 +83,19 @@ VALUES
 ( 'Chloë Grace Moretz', 3),
 ;
 
-INSERT INTO common.club (club_name, room_number, rep_std_id)
+INSERT INTO common.club (club_name, club_location, rep_std_id)
 VALUES
-('Student Body', 501)
+('Student Body - 1', 'M501'),
+('Student Body - 2', 'M502'),
+('', 'M101'),
+('', 'M102'),
+('Advanced Class', 'M301'),
+('', 'M302'),
+('Media - 1', 'M401'),
+('Media - 2', 'M402'),
+('Media - 3', 'M402'),
+('Book', 'L401'),
+('Athletic', 'S101'),
 ;
 
 INSERT INTO common.class_name;
