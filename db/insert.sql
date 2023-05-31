@@ -2,11 +2,32 @@ INSERT INTO common.teachers (teacher_name, teacher_position)
 VALUES
 ('Companion Polapo Chipmunk Singer', 'The Chairman of the Board'),
 ('Karina Rocket Puncher', 'The Principal'),
-('Winter Armamenter', 'Vice Principal')
+('Winter Armamenter', 'Vice Principal'),
+('S. Petrus', 'Pope')
+('S. Michael', 'Saintess')
+('Leorio Paladinight', 'Doctor')
+('Hippocrates', 'Doctor')
+('Lina Inverse', 'Advanced')
+('Xellos', 'Advanced'),
+('Albus Dumbledore', 'Advanced'),
+('Howl', 'Advanced')
+('Belldandy', 'Advanced')
+('Emma Watson', 'Advanced')
+('Emma Watson', 'Advanced')
+('Harry Potter', 'Advanced')
+('Ron Weasley', 'Advanced')
+('Gon Freecss', 'Intermediate')
+('Killua Zoldyck', 'Intermediate')
+('Kurapika ', 'Intermediate')
+('Killua Zoldyck', 'Intermediate')
+('Kite', 'Intermediate')
+('Oz', 'Beginner')
+('Kiki', 'Trainee')
 ;
 
 INSERT INTO common.student (name, grade)
 VALUES
+-- class 1
 ( 'John David', 1),
 ( 'Cloud Katharine', 1),
 ( 'John von Neumann', 1),
@@ -30,8 +51,7 @@ VALUES
 ( 'Abigail', 1),
 ( 'Isabella', 1),
 ( 'Ella', 1),
-
-
+-- class 2
 ( 'Emma', 2),
 ( 'Herry', 2),
 ( 'Wyatt', 2),
@@ -55,8 +75,7 @@ VALUES
 ( 'Emilly', 2),
 ( 'Stella', 2),
 ( 'Paisley', 2),
-
-
+-- class 3
 ( 'Willow', 3),
 ( 'Ivy', 3),
 ( 'Zoe', 3),
@@ -85,17 +104,20 @@ VALUES
 
 INSERT INTO common.club (club_name, club_location, rep_std_id)
 VALUES
-('Student Body - 1', 'M501'),
-('Student Body - 2', 'M502'),
-('', 'M101'),
-('', 'M102'),
-('Advanced Class', 'M301'),
-('', 'M302'),
-('Media - 1', 'M401'),
-('Media - 2', 'M402'),
-('Media - 3', 'M402'),
-('Book', 'L401'),
-('Athletic', 'S101'),
+('Student Body - 1', 'M501', 73),
+('Student Body - 2', 'M502', 62),
+('Science', 'M101', null),
+('Science', 'M102', null),
+('Advanced Class', 'M301', null),
+('Band', 'M302', null),
+('Media - 1', 'M401', null),
+('Media - 2', 'M402', null),
+('Media - 3', 'M402', null),
+('Book', 'L401', null),
+('Athletic', 'S101', null),
 ;
 
-INSERT INTO common.class_name;
+INSERT INTO common.class_name (class_number, teacher_id)
+VALUES
+(2022, 1), (2023, 1), (1, 2), (2, 3), (3, 4), (4, 5)
+;

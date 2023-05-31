@@ -1,5 +1,6 @@
 CREATE DATABASE common;
 
+-- ON UPDATE -> table data update -> column data update 
 CREATE TABLE common.teachers (
     id int PRIMARY KEY AUTO_INCREMENT,
     teacher_name varchar(50) NOT NULL,
@@ -18,7 +19,7 @@ CREATE TABLE common.student (
 
 CREATE TABLE common.student_data (
     id int PRIMARY KEY AUTO_INCREMENT,
-    std_id int not NULL,
+    std_id int not NULL COMMENT 'student id',
     address varchar(100),
     phone varchar(20),
     parent_phone varchar(20) ,
@@ -32,7 +33,7 @@ CREATE TABLE common.club (
     id int PRIMARY KEY AUTO_INCREMENT,
     club_name varchar(20) NOT NULL,
     club_location varchar(10) COMMENT COMMENT 'club room number',
-    rep_std_id int COMMENT 'a representative student of the club',
+    rep_std_id int COMMENT 'a representative student of the club, student id',
     create_date datetime DEFAULT current_timestamp,
     update_date datetime ON UPDATE current_timestamp
 );
@@ -40,5 +41,8 @@ CREATE TABLE common.club (
 CREATE TABLE common.class_name (
     id int PRIMARY KEY AUTO_INCREMENT,
     class_number int UNIQUE KEY COMMENT 'student class number',
-    teacher_id int NOT NULL
+    teacher_id int NOT NULL COMMENT 'teachers id',
+    sub_teacher_id int COMMENT 'teachers id',
+    create_date datetime DEFAULT current_timestamp,
+    update_date datetime ON UPDATE current_timestamp
 );
