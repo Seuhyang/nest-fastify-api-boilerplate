@@ -12,6 +12,11 @@ module.exports = {
                 name: 'dev-boilerplate-backend-api-server',
                 NODE_ENV: 'dev',
             },
+            env_staging: {
+                name: 'staging-boilerplate-backend-api-server',
+                NODE_ENV: 'staging',
+                watch: false,
+            },
         },
     ],
 };

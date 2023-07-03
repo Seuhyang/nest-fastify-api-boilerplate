@@ -16,6 +16,8 @@
 
 ```bash
 $ npm install
+# or
+$ npm i
 ```
 
 ## Nestjs cli 명령어 모음

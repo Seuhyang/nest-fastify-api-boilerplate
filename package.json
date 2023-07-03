@@ -6,22 +6,24 @@
     "private": true,
     "license": "UNLICENSED",
     "scripts": {
-        "dev:basic": "cross-env NODE_ENV=dev nest start backend --watch",
-        "dev:pm2": "pm2 start process-manager.config.cjs --env dev --only boilerplate-backend-api-server --watch",
-        "dev": "pm2 start process-manager.config.cjs --env dev --only boilerplate-backend-api-server --watch",
-        "prod": "cross-env NODE_ENV=prod nest start backend --watch",
         "build": "nest build",
+        "build:back": "nest build backend",
+        "watch": "tsc -w",
         "format": "prettier --write \"apps/**/*.ts\" \"libs/**/*.ts\"",
         "start": "nest start",
-        "start:dev": "nest start --watch",
+        "start:dev:watch": "nest start --watch",
         "start:debug": "nest start --debug --watch",
-        "start:prod": "node dist/apps/nest-fastify-api-boilplate/main",
+        "start:prod": "node dist/apps/backend/main",
         "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
         "test": "jest",
         "test:watch": "jest --watch",
         "test:cov": "jest --coverage",
         "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-        "test:e2e": "jest --config ./apps/nest-fastify-api-boilplate/test/jest-e2e.json"
+        "test:e2e": "jest --config ./apps/backend/test/jest-e2e.json",
+        "start:dev": "cross-env NODE_ENV=dev nest start backend --watch",
+        "start:dev:pm2": "pm2 start process-manager.config.cjs --env dev --only boilerplate-backend-api-server",
+        "dev": "pm2 start process-manager.config.cjs --env dev --only boilerplate-backend-api-server --watch",
+        "prod": "cross-env NODE_ENV=prod nest start backend --watch"
     },
     "dependencies": {
         "@fastify/compress": "^6.3.0",
@@ -36,6 +38,7 @@
         "@nestjs/passport": "^9.0.3",
         "@nestjs/platform-express": "^9.0.0",
         "@nestjs/platform-fastify": "^9.4.1",
+        "@nestjs/platform-socket.io": "^10.0.3",
         "@nestjs/schedule": "^2.2.2",
         "@nestjs/sequelize": "^9.0.2",
         "@nestjs/swagger": "^6.3.0",
@@ -49,12 +52,15 @@
         "cross-env": "^7.0.3",
         "dayjs": "^1.11.7",
         "fastify": "^4.17.0",
+        "firebase": "^9.23.0",
+        "firebase-admin": "^11.9.0",
         "lodash": "^4.17.21",
         "mysql2": "^3.3.1",
         "nestjs-pino": "^3.2.0",
         "passport": "^0.6.0",
         "passport-jwt": "^4.0.1",
         "passport-local": "^1.0.0",
+        "pino-http": "^8.3.3",
         "randomstring": "^1.2.3",
         "redis": "^4.6.6",
         "redis-rank": "^2.2.1",
@@ -112,7 +118,8 @@
         ],
         "moduleNameMapper": {
             "^@app/database(|/.*)$": "<rootDir>/libs/database/src/$1",
-            "^@app/models(|/.*)$": "<rootDir>/libs/models/src/$1"
+            "^@app/models(|/.*)$": "<rootDir>/libs/models/src/$1",
+            "^@backend/common(|/.*)$": "<rootDir>/apps/backend/src/common/$1"
         }
     }
 }
